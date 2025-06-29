@@ -1,0 +1,44 @@
+name: Build and Deploy Models
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "models/**"
+      - ".github/workflows/supporting/generate.py"
+      - ".github/workflows/build.yaml"
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+
+jobs:
+  build-models:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.9"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+
+      - name: Generate public/models.json and copy models
+        run: |
+          python .github/workflows/supporting/generate.py
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4.7.2
+        if: ${{ github.ref == 'refs/heads/main' }}
+        with:
+          branch: gh-pages
+          folder: public
+          git-config-name: GitHub Actions
+          git-config-email: github-actions[bot]@users.noreply.github.com
+          commit-message: Update models
+          single-commit: true

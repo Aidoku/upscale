@@ -1,0 +1,8 @@
+.DS_Store
+.ropeproject
+
+scripts/*
+!scripts/*.py
+!scripts/README.md
+
+public/
