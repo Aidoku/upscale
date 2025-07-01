@@ -59,9 +59,9 @@ for fname in os.listdir(MODELS_DIR):
         size = get_path_size(model_file)
         models.append({
             "name": meta.get("name", base),
-            "info": meta.get("info", ""),
+            "info": meta.get("info"),
             "tags": meta.get("tags", []),
-            "type": meta.get("type", ""),
+            "type": meta.get("type", "multiarray"),
             "config": meta.get("config", {}),
             "file": f"models/{os.path.basename(model_file)}",
             "size": size

@@ -3,12 +3,11 @@ import coremltools as ct
 import numpy as np
 import argparse
 import os
-from spandrel import MAIN_REGISTRY, ModelLoader, ImageModelDescriptor
+from spandrel import MAIN_REGISTRY, ModelLoader
 
 def main():
     parser = argparse.ArgumentParser(description="Convert a .pth model to .mlpackage with spandrel")
     parser.add_argument("pth_path", help="Path to the .pth model file")
-    parser.add_argument("--scale", help="Model scale factor", type=int, default=4)
     args = parser.parse_args()
 
     model = ModelLoader().load_from_file(args.pth_path).model
@@ -25,9 +24,10 @@ def main():
             ct.TensorType(name="input", shape=example_input.shape, dtype=np.float32)
         ],
         outputs=[
-            ct.TensorType(name="output")
+            ct.TensorType(name="output", dtype=np.float32)
         ],
         convert_to='mlprogram',
+        minimum_deployment_target=ct.target.iOS16
     )
 
     base = os.path.basename(args.pth_path)

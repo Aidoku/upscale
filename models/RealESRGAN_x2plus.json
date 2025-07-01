@@ -1,0 +1,11 @@
+{
+	"name": "Real-ESRGAN (2x, photo)",
+	"tags": ["2x"],
+	"type": "multiarray",
+	"miniOS": 16,
+	"config": {
+		"inputName": "input",
+		"outputName": "output",
+		"blockSize": 256
+	}
+}

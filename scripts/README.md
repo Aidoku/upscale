@@ -23,6 +23,8 @@ python waifu2x_upconv7_convert.py pretrained_models/upconv_7/photo/noise0_scale2
 
 ## Real-ESRGAN (and others, with spandrel)
 
+Model files can be found [here](https://github.com/xinntao/Real-ESRGAN/blob/master/docs/model_zoo.md).
+
 ```sh
 pip install spandrel
 python spandrel_convert.py path/to/model.pth

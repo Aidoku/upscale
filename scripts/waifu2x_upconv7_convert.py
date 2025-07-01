@@ -33,6 +33,7 @@ def main():
             ct.TensorType(name="output")
         ],
         convert_to='mlprogram',
+        minimum_deployment_target=ct.target.iOS15
     )
 
     base = os.path.basename(args.pth_path)
