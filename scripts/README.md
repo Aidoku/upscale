@@ -18,7 +18,7 @@ unzip waifu2x_pretrained_models_20250502.zip
 git clone git@github.com:nagadomi/nunif.git
 pip install Pillow torchvision
 # run conversion
-python waifu2x_upconv7_convert.py pretrained_models/upconv_7/photo/noise0_scale2x.pth
+python waifu2x_upconv7_convert.py pretrained_models/upconv_7
 ```
 
 ## Real-ESRGAN (and others, with spandrel)
