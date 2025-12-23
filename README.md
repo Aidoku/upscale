@@ -4,8 +4,8 @@ This repository contains image upscaling models that are installable within Aido
 
 ## Available Models
 
-- `waifu2x (2x, noise0)`: the latest version of waifu2x, with 2x scaling and noise0 denoising.
-- `Real-ESRGAN (2x, photo)`: Real-ESRGAN 2x model for general images.
+- `waifu2x (photo, 2x, noise0)`: the latest version of waifu2x, with 2x scaling and noise0 denoising.
+- `Real-ESRGAN (photo, 2x)`: Real-ESRGAN 2x model for general images.
 
 ## Using Custom Models in Aidoku
 
